@@ -1,6 +1,6 @@
 {
   "name": "@pranaysahith/netlify-cms-widget-parent",
-  "version": "1.0.13",
+  "version": "1.0.1",
   "description": "A Netlify CMS widget to select directory parent for an entry",
   "main": "dist/netlify-cms-widget-parent.js",
   "scripts": {
@@ -31,12 +31,12 @@
   },
   "homepage": "https://github.com/netlify-labs/netlify-cms-widget-parent#readme",
   "dependencies": {
-    "@emotion/core": "^10.0.35",
-    "@emotion/styled": "^10.0.27",
-    "netlify-cms-ui-default": "^2.15.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.11.0",
+    "decap-cms-ui-default": "^3.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-select": "^3.1.0",
+    "react-select": "^5.10.2",
     "slugify": "^1.5.0"
   },
   "devDependencies": {
@@ -47,8 +47,8 @@
     "@babel/preset-react": "^7.10.4",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^16.0.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-emotion": "^10.0.33",
+    "@emotion/babel-plugin": "^11.0.0",
+    "babel-loader": "^10.0.0",
     "copy-webpack-plugin": "^10.0.0",
     "cross-env": "^7.0.2",
     "eslint": "^8.0.0",

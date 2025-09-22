@@ -1,9 +1,9 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { dirname, sep } from 'path';
-import { colors, components } from 'netlify-cms-ui-default/dist/esm/styles';
-import Icon from 'netlify-cms-ui-default/dist/esm/Icon';
+import { colors, components } from 'decap-cms-ui-default/dist/esm/styles';
+import Icon from 'decap-cms-ui-default/dist/esm/Icon';
 
 const NodeTitleContainer = styled.div`
   display: flex;
@@ -77,8 +77,8 @@ const TreeNode = (props) => {
 
   const sortedData = [...treeData];
   sortedData.sort((a, b) => {
-    const title1 = getNodeTitle(a);
-    const title2 = getNodeTitle(b);
+    const title1 = getNodeTitle(a) || '';
+    const title2 = getNodeTitle(b) || '';
     return title1.localeCompare(title2);
   });
 
@@ -88,11 +88,11 @@ const TreeNode = (props) => {
     }
 
     const title = getNodeTitle(node);
-
     const hasChildren = depth === 0 || node.children.some((c) => c.isDir);
     return (
-      <React.Fragment key={node.path}>
+      <>
         <TreeNavLink
+          key={node.path}
           activeClassName="parent-node-active"
           onClick={(e) => {
             e.stopPropagation();
@@ -115,7 +115,7 @@ const TreeNode = (props) => {
             onToggle={onToggle}
           />
         )}
-      </React.Fragment>
+      </>
     );
   });
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import AsyncSelect from 'react-select/async';
-import { reactSelectStyles } from 'netlify-cms-ui-default/dist/esm/styles';
+import { reactSelectStyles } from 'decap-cms-ui-default/dist/esm/styles';
 import { NestedCollection } from './NestedCollection';
 import slugify from 'slugify';
 
@@ -124,13 +124,15 @@ export class ParentControl extends React.Component {
       this.props.onChange(this.getValue() + '/');
       // track title field so we can use it for the folder name
       const titleInput = document.querySelector('[id*=title-field]');
-      titleInput.addEventListener('input', (e) => {
-        const title = e.target.value;
-        this.setState({ title });
-        const selectProps = this.selectRef.current.props;
-        const currentParent = selectProps.value?.value || '/';
-        this.handleChange(currentParent);
-      });
+      if (titleInput) {
+        titleInput.addEventListener('input', (e) => {
+          const title = e.target.value;
+          this.setState({ title });
+          const selectProps = this.selectRef.current?.props || {};
+          const currentParent = selectProps.value?.value || '/';
+          this.handleChange(currentParent);
+        });
+      }
     }
   }
 
